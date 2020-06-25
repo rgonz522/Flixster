@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -32,7 +33,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+       com.example.flixster.databinding.ActivityMainBinding binding = com.example.flixster.databinding.ActivityMainBinding.inflate(getLayoutInflater());
+
+        View view = binding.getRoot();
+        setContentView(view);
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
 
 

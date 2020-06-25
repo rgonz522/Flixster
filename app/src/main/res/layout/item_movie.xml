@@ -18,11 +18,11 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="146dp"
+        android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="12dp"
         android:layout_toEndOf="@id/ivPoster"
         android:textSize="24sp"
         tools:text="Movie Title" />

@@ -17,22 +17,22 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="146dp"
+        android:layout_width="438dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="6dp"
         android:layout_toEndOf="@id/ivPoster"
         android:textSize="24sp"
         tools:text="Movie Title" />
 
     <TextView
         android:id="@+id/tvOverview"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        android:layout_width="440dp"
+        android:layout_height="85dp"
         android:layout_below="@+id/tvTitle"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-5dp"
         android:layout_toEndOf="@id/ivPoster"
         tools:text="Movie OVerview where they describe what happens in the movie" />
 </RelativeLayout>
