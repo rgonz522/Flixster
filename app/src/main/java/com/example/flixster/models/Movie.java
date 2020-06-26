@@ -19,8 +19,10 @@ public class Movie  {
     String posterPath;
     String title;
     String overview;
+    String videoPath;
 
     Double voteAverage;
+    int id;
 
     public Movie()
     {
@@ -34,6 +36,9 @@ public class Movie  {
         overview = jsonObject.getString("overview");
 
         voteAverage = jsonObject.getDouble("vote_average");
+        id = jsonObject.getInt("id");
+//        videoPath = jsonObject.getString( "/movie/{"+id+"}/videos");
+
     }
 
     public Double getVoteAverage()
@@ -60,6 +65,17 @@ public class Movie  {
     {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     }
+
+    public String getVideoPath()
+    {
+        return String.format(" https://www.youtube.com/watch?v=", id);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
 
     public String getTitle()
     {

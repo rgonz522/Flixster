@@ -25,15 +25,18 @@ import okhttp3.Headers;
 public class MainActivity extends AppCompatActivity
 {
 
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+
     public static final String TAG = "MainActivity";
 
+
+
     List<Movie> Movies;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       com.example.flixster.databinding.ActivityMainBinding binding = com.example.flixster.databinding.ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.flixster.databinding.ActivityMainBinding binding = com.example.flixster.databinding.ActivityMainBinding.inflate(getLayoutInflater());
 
         View view = binding.getRoot();
         setContentView(view);
@@ -52,34 +55,31 @@ public class MainActivity extends AppCompatActivity
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler()
-        {
+        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Headers headers, JSON json)
-            {
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "OnSuccess");
                 JSONObject jsonObject = json.jsonObject;
 
                 try {
-                        JSONArray results = jsonObject.getJSONArray("results");
-                        Log.d(TAG, results.toString());
-                        movieAdapter.notifyDataSetChanged();
-                        Movies.addAll(Movie.fromJsonArray(results));
+                    JSONArray results = jsonObject.getJSONArray("results");
+                    Log.d(TAG, results.toString());
+                    movieAdapter.notifyDataSetChanged();
+                    Movies.addAll(Movie.fromJsonArray(results));
 
-                        Log.d(TAG, "Movies" + Movies.size());
-                     } catch (JSONException e)
-                        {
-                            Log.d(TAG, "Hit JSON Exception");
-                            e.printStackTrace();
+                    Log.d(TAG, "Movies" + Movies.size());
+                } catch (JSONException e) {
+                    Log.d(TAG, "Hit JSON Exception");
+                    e.printStackTrace();
 
-                        }
+                }
             }
 
             @Override
-            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable)
-            {
+            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                 Log.d(TAG, "OnFailure");
             }
+
         });
     }
 }
